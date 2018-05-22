@@ -30,17 +30,17 @@
     </li>
     <% if can?(:manage, Sipity::WorkflowResponsibility) %>
       <%= menu.nav_link(hyrax.admin_workflow_roles_path) do %>
-        <span class="fa fa-users"></span> <span class="sidebar-action-text"><%= t('hyrax.admin.sidebar.workflow_roles') %></span>
+        <span class="fa fa-code-fork"></span> <span class="sidebar-action-text"><%= t('hyrax.admin.sidebar.workflow_roles') %></span>
       <% end %>
     <% end # end of configuration block %>
 			<li>
 				<a href="/users">
-			  	<span class="fa fa-users"></span> <span class="sidebar-action-text">User Accounts</span>
+			  	<span class="fa fa-user"></span> <span class="sidebar-action-text">User Accounts</span>
 				</a>
 			</li>
 			<li>
 				<a href="/roles">
-			  	<span class="fa fa-users"></span> <span class="sidebar-action-text">User Roles</span>
+			  	<span class="fa fa-user-plus"></span> <span class="sidebar-action-text">User Roles</span>
 				</a>
 			</li>
 			<li>
@@ -50,7 +50,7 @@
 			</li>
 			<li>
 				<a href="/group_memberships">
-			  	<span class="fa fa-users"></span> <span class="sidebar-action-text">Group Memberships</span>
+			  	<span class="fa fa-user-circle-o"></span> <span class="sidebar-action-text">Group Memberships</span>
 				</a>
 			</li>
   <% end %>
