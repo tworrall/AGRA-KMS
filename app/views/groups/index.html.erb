@@ -1,0 +1,32 @@
+<h1 class="groups-heading masthead-padding">Groups</h1>
+<div id="group-form-container">
+  <% if @groups.present? %>
+	<table id="group-list">
+	  <thead>
+	    <tr>
+	      <th>Group Name</th>
+	      <th>Group Description</th>
+	      <th></th>
+	    </tr>
+	  </thead>
+	
+	  <tbody>
+	    <% @groups.each do |group| %>
+	      <tr>
+	        <td><%= link_to group.name, edit_group_path(group), title: 'Edit this group' %></td>
+	        <td><%= group.description %></td>
+	        <td><%= link_to raw('<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>'), group, title: 'Delete this group', method: :delete, data: { confirm: 'Are you sure?'}  %></td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+  <% end %>	
+	<br/>
+	<br/>	
+	<%= button_to "Create New Group", new_group_path, :class => "btn btn-primary btn-md pull-left", :method => :get%>
+	<span class="pull-left" style="padding-left:40px">
+		<%= button_to "Manage Memberships", group_memberships_path, :class => "btn btn-primary btn-md", :method => :get%>
+	</span>
+	<br/><br/>
+</div>
+<div class="groups-form-footer"></div>

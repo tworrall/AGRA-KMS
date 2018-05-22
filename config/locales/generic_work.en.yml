@@ -1,0 +1,17 @@
+en:
+  hyrax:
+    icons:
+      generic_work:     'fa fa-file-text-o'
+    select_type:
+      generic_work:
+        description:        "Generic work works"
+        name:               "Generic Work"
+  simple_form:
+    labels:
+      generic_work:
+        commodities: "Commodities"
+        value_chain: "Value Chain"
+        creator: "Author"
+        based_near: "Geographic location"
+    hints:
+        

@@ -1,0 +1,67 @@
+<% commodities = session[:commodities_list] %>
+<% geo_location = session[:geo_location_list] %>
+<% value_chain = session[:value_chain_list] %>
+<% language = session[:language_list] %>
+<% if commodities.length != 0 || geo_location.length != 0 || value_chain.length != 0 || language.length != 0%>
+<div id="browse-by">
+	<h1 id="browse-heading">Browse by</h1>
+	<ul>
+		<li style="list-style:none">
+			<% if commodities.length != 0 %>
+			<div id="commodities-dropdown" class="btn-group browse-options">
+			  <button type="button" class="btn btn-default dropdown-toggle home-dropdown" data-toggle="dropdown">
+			      Commodity <div class="caret home-caret"></div>
+			  </button>
+
+			  <ul class="dropdown-menu" role="menu">
+					<% commodities.each do |c| %>
+			        <li style="font-size:14px"><a href="/catalog?f[commodities_sim][]=<%=c%>&locale=en&q=&search_field=all_fields"><%=c%></a></li>
+					<% end %>
+			  </ul>
+			</div>
+			<% end %>
+			<% if geo_location.length != 0 %>	
+			<div id="location-dropdown" class="btn-group browse-options">
+			  <button type="button" class="btn btn-default dropdown-toggle home-dropdown" data-toggle="dropdown">
+			    Geographic Location <div class="caret home-caret"></div>
+			  </button>
+
+			  <ul class="dropdown-menu" role="menu">
+					<% geo_location.each do |c| %>
+			        <li style="font-size:14px"><a href="/catalog?f[based_near_sim][]=<%=c%>&locale=en&q=&search_field=all_fields"><%=c%></a></li>
+					<% end %>
+			  </ul>
+			</div>
+			<% end %>
+		</li>
+		<li style="list-style:none">
+			<% if value_chain.length != 0 %>
+			<div id="value_chain-dropdown" class="btn-group browse-options">
+			  <button type="button" class="btn btn-default dropdown-toggle home-dropdown" data-toggle="dropdown">
+			     Value Chain <div class="caret home-caret"></div>
+			  </button>
+
+			  <ul class="dropdown-menu" role="menu">
+					<% value_chain.each do |c| %>
+			        <li style="font-size:14px"><a href="/catalog?f[value_chain_sim][]=<%=c%>&q=&search_field=all_fields"><%=c%></a></li>
+					<% end %>
+			  </ul>
+			</div>
+			<% end %>	
+			<% if language.length != 0 %>
+			<div id="language-dropdown" class="btn-group browse-options">
+			  <button type="button" class="btn btn-default dropdown-toggle home-dropdown" data-toggle="dropdown">
+			     Language <div class="caret home-caret"></div>
+			  </button>
+
+			  <ul class="dropdown-menu" role="menu">
+					<% language.each do |c| %>
+			        <li style="font-size:14px"><a href="/catalog?f[language_sim][]=<%=c%>&q=&search_field=all_fields"><%=c%></a></li>
+					<% end %>
+			  </ul>
+			</div>
+			<% end %>	
+		</li>
+	</ul>	
+</div>
+<% end %> 

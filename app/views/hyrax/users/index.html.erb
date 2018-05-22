@@ -1,0 +1,36 @@
+<div id="search" class="user-management masthead-padding">
+	<%= render partial: 'search_form' %>
+	<h1>User Accounts</h1>
+	<div id="Data">
+	    <table class="table table-striped"> 
+	        <thead> 
+	            <tr> 
+	                <th class="sorts">
+						<i id="email" style="<%=params[:sort].blank? ? '' : params[:sort]== "email" ? '' : params[:sort]== "name" ? 'color:#1caade' : ''%>"></i>
+						<span style="<%=params[:sort].blank? ? '' : params[:sort]== "email" ? '' : params[:sort]== "name" ? 'color:#1caade' : ''%>">Email</span>
+					</th>
+	                <th class="sorts">
+						<i id="name" style="<%=params[:sort].blank? ? 'color:#1caade' : params[:sort]== "email" ? 'color:#1caade' : params[:sort]== "name" ? '' : ''%>"></i>
+						<span style="<%=params[:sort].blank? ? 'color:#1caade' : params[:sort]== "email" ? 'color:#1caade' : params[:sort]== "name" ? '' : ''%>">Name</span>
+					</th>
+					<th></th>
+					<th></th>
+	            </tr> 
+	        </thead> 
+	        <tbody> 
+	            <% @users.each do |user| %> 
+	                <tr class="<%= cycle("","zebra") %>"> 
+	                   <td><a href="/user_mgmt/edit/<%= user.id %>"  ><%= user.user_key %><a></td>
+	                   <td ><%= user.display_name %></td> 
+			        	<td><%= link_to raw('<i class="glyphicon glyphicon-lock" aria-hidden="true"></i>'), '/user_mgmt/pwd/' + user.id.to_s, title: 'Change password'%></td>
+			        	<td><%= link_to raw('<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>'), '/user_mgmt/delete/' + user.id.to_s, title: 'Delete this user', method: :delete, data: { confirm: 'Are you sure?'}  %></td>
+	                </tr> 
+	             <% end %> 
+	        </tbody> 
+	    </table> 
+	    <div class="pager">
+	      <%= paginate @users,  theme: 'blacklight', route_set: hyrax%>
+	    </div>
+	</div> 
+	<%= button_to "Create New User", '/user_mgmt/new', :class => "btn btn-primary btn-md", :method => :get %><br/><br/>
+</div>

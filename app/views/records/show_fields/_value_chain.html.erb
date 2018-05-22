@@ -1,0 +1,6 @@
+<% record.value_chain.each do |bn| %>
+  <span itemprop="valueChain" itemscope itemtype="http://schema.org/BusinessEntityType">
+    <span itemprop="name"><%= link_to_facet(bn, Solrizer.solr_name("value_chain", :facetable)) %></span>
+  </span>
+  <br />
+<% end %>

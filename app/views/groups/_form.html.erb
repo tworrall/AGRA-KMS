@@ -1,0 +1,29 @@
+<div id="group-form-container">
+	<%= form_for(@group) do |f| %>
+	  <% if @group.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+	
+	      <ul>
+	      <% @group.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	
+	  <div class="field">
+	    <%= f.label "Group Name", :class => "group-label" %><br>
+	    <%= f.text_field :name %><br/>
+		<p class="input-field-note">Note: The Group Name must be alphanumeric and cannot contain spaces.</p>
+	  </div>
+	  <div class="field">
+	    <%= f.label :description, :class => "group-label" %><br>
+	    <%= f.text_field :description %>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit "Save", :class => 'btn btn-primary btn-md' %>
+	  </div>
+	<br/>
+	<% end %>
+</div>

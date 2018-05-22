@@ -1,0 +1,14 @@
+      <%= image_tag @user.avatar.url(:thumb), width: 100 %>
+      <h3><%= @user.name %><br /><%= @user.user_key %> </h3>
+      <hr /> 
+        <%= render "vitals" %>
+      <hr />
+
+      <%= render "follower_modal" %>
+      <%= render "following_modal" %>
+ 
+      <br />
+      <a class="btn btn-primary" href="/user_mgmt/pwd_change/<%=@user.id.to_s%>">Change Password</a>
+	<br/>
+	<br/>
+

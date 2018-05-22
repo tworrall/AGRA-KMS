@@ -1,0 +1,6 @@
+<% record.commodities.each do |bn| %>
+  <span itemprop="commodity" itemscope itemtype="http://schema.org/Product">
+    <span itemprop="name"><%= link_to_facet(bn, Solrizer.solr_name("commodities", :facetable)) %></span>
+  </span>
+  <br />
+<% end %>

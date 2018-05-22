@@ -1,0 +1,126 @@
+.lightbox {
+  padding: 60px 0 225px;
+	margin-top: 90px;
+  background: image_url('agra-kms/yams.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.jumbotron {
+  @include background-opacity(#000, .75);
+  p {
+    margin-bottom: 0;
+	font-size: 1.25em
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  p.overview {
+    padding: 15px 0 15px 50px;
+    border-left: solid 1px $dark-gray;
+  }
+
+  .search-browse {
+    padding: 15px 50px 15px 0;
+  }
+}
+
+input.search-q {
+  height: 37px;
+}
+
+#browse-by {
+  font-size: .8em;
+  h4 {
+    margin-right: .5em;
+	margin-bottom: 4px;
+    font-size: 1.75em;
+  }
+  ul {
+	font-size: 1.5em;
+  }
+}
+#collections-browse {
+  font-size: .8em;
+  text-transform: uppercase;
+  h4 {
+    margin-right: .5em;
+	margin-bottom: 4px;
+    font-size: 1.75em;
+  }
+  ul {
+	font-size: 1.5em;
+  }
+}
+#homeTabs {
+	margin-top: 24px;
+}
+.quick-browse {
+  clear: all;
+  display: inline-block;
+	a {
+		color: #1caade;
+		font-size: 1.2em;
+	}
+}
+.home-dropdown {
+  width:180px;
+	text-align:left;
+}
+#masthead {
+/*    background-color: #fff !important;*/
+}
+div.browse-options {
+	margin:15px 0 0 15px;
+}
+div.home-flash {
+	position: absolute;
+	top: 100px;
+	width: 100%;
+}
+.horizontal-new-banner {
+	margin-left: -10px;
+	margin-top: -18px;
+	margin-bottom:-6px;
+}
+#browse-heading {
+	margin-top:42px;
+	margin-right: .5em;
+	margin-bottom: 4px;
+	font-size: 20px;
+}
+#recent-updates-heading {
+	font-size: 28px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+#new-logo {
+	width: 64px;
+	height: 29px;
+}
+#angled-logo {
+	width: 50px;
+	height: 71px;
+	margin-top:3px;
+	margin-left:-12px;
+}
+.home-caret {
+	float:right;
+	margin-top:-12px;
+}
+div#announcement {
+    text-align: center;
+		background-color: #fcf8e3;
+		border: 1px solid #faf2cc;
+		color: #8a6d3b;
+		font-size: 1.5em;
+    padding: 15px 10px;
+		border-radius: 0;
+		margin: -15px 0 30px;
+}
+.home_marketing_text {
+	color: #fff !important;
+	padding: 15px 0 15px 50px;
+}

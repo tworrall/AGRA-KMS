@@ -1,0 +1,54 @@
+<div id="group-form-container">
+	<%= form_for(@group_membership) do |f| %>
+	  <% if @group_membership.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@group_membership.errors.count, "error") %> prohibited this group from being saved:</h2>
+	
+	      <ul>
+	      <% @group_membership.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	<div class="form-group row">
+		  <div class="col-sm-3">
+		    <%= f.label 'Select one group only' %><br>
+		    <select id="group-select" name="group_name" class="form-control" data="<%= params[:group_name]%>">
+				<option value="" <%if params[:group_name].nil?%>selected<%end%> ></option>
+				<% @groups.each do |group| %>
+					<option value="<%= group.name %>" data="<%= group.id %>"><%= group.name %></option>
+				<% end %>
+			</select>
+		  </div>
+		  <div class="col-sm-5">
+		    <%= f.label 'Select group members' %><br>
+		    <select id="user-select" name="member_id" class="form-control">
+				<option value="" data="" selected></option>
+			</select>
+			<div id="selected-members">
+			</div>
+		  </div>
+		<div class="col-sm-3">
+			<br/>
+			<button class="btn btn-mini btn-inverse" type="button" id="add_user_to_group"><i class="glyphicon glyphicon-plus"></i></button>
+		</div>
+	</div>
+	  <div>
+			<input type="hidden" name="created_at" value="<%= DateTime.now %>"/>
+			<input type="hidden" name="member_type" value="User"/>
+			<input type="hidden" name="group_id" value=""/>
+			<input type="hidden" name="member_id" value=""/>
+	  </div>
+	<div class="groups-form-footer"></div>
+	<div class="groups-form-footer"></div>
+	
+	  <div class="actions">
+	    <%= f.submit "Save", :class => 'btn btn-primary btn-md' %>
+	  </div>
+	<br/>
+	<% end %>
+</div>
+<%= javascript_tag do %>
+  membershipGroupName = '<%= params[:group_name] %>';
+<% end %>

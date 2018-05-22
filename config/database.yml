@@ -1,0 +1,35 @@
+# SQLite version 3.x
+#   gem install sqlite3
+#
+#   Ensure the SQLite 3 gem is defined in your Gemfile
+#   gem 'sqlite3'
+#
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  socket: /var/lib/mysql/mysql.sock
+
+development:
+  <<: *default
+  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}" %>
+  username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
+  password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
+
+staging:
+  <<: *default
+  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}" %>
+  username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
+  password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
+
+test:
+  <<: *default
+  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}" %>
+  username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
+  password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>
+
+production:
+  <<: *default
+  database: <%= "#{ENV['DATABASE_NAME_PREFIX']}" %>
+  username: <%= "#{ENV['DATABASE_RAILS_USER']}" %>
+  password: <%= "#{ENV['DATABASE_RAILS_USER_PW']}" %>

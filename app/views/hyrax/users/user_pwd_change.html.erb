@@ -1,0 +1,10 @@
+<div class="user-management">
+	<h1 class="groups-heading">Password Change</h1>
+	<h4><%= @user.email %></h4><br/>
+
+	<%= render partial: 'form', locals: {form_url: "/user_mgmt/user_pwd_update"} %>
+
+	<%= link_to 'Back', hyrax.profile_path(current_user), class: 'groups-form-back' %>
+
+	<div class="groups-form-footer"></div>
+</div>

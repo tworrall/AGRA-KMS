@@ -1,0 +1,45 @@
+<div id="user-form-container">
+	<%= form_for(@user, :url => form_url) do |f| %>
+	  <% if @user.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+	
+	      <ul>
+	      <% @user.errors.full_messages.each do |message| %>
+	        <li><%= message %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+	  <input type="hidden" name="user_id" value="<%= @user.id %>">
+	  <input type="hidden" name="form_action" value="<%= params[:action] %>">
+		<% if params[:action] == "admin_pwd" || params[:action] == "admin_pwd_update" || params[:action] == "user_pwd_change" || params[:action] == "user_pwd_update"%>
+	    	<%= f.text_field :email, :type => "hidden", :class => "user-form-input" %> 
+	    	<%= f.text_field :display_name, :type => "hidden", :class => "user-form-input" %>
+		<% else %>
+	  	<div class="field">
+		    <%= f.label "Email", :class => "group-label" %> <em>(must be a valid email address)</em><br>
+		    <%= f.text_field :email, :type => "email", :class => "user-form-input" %>
+	  	</div>
+		<div class="field">
+		    <%= f.label "Name", :class => "group-label" %><br>
+		    <%= f.text_field :display_name, :class => "user-form-input" %><br/><br/>
+			<%= f.check_box :admin  %> <label>Administrator </label> 
+	  	</div>
+		<% end %>
+		<% if params[:action] != "admin_edit" && params[:action] != "admin_update" %>
+	    <div class="field">
+	    	<%= f.label "Password", :class => "group-label" %> <em>(must be at least 8 characters long)</em><br>
+	    	<%= f.text_field :password, :type => "password", :class => "user-form-input" %>
+	    </div>
+		<div class="field">
+	    	<%= f.label "Password Confirmation", :class => "group-label" %><br>
+	    	<%= f.text_field :password_confirmation, :type => "password", :class => "user-form-input" %>
+	    </div>
+		<% end %>
+	  <div class="actions">
+	    <%= f.submit "Save", :class => 'btn btn-primary btn-md' %>
+	  </div>
+	<br/>
+	<% end %>
+</div>

@@ -1,0 +1,11 @@
+<div class="user-management masthead-padding">
+	<h1 class="groups-heading">Password Change</h1>
+	<h4><%= @user.email %></h4><br/>
+
+	<%= render partial: 'form', locals: {form_url: "/user_mgmt/pwd_update"} %>
+
+	<%= link_to 'Back', '/users', class: 'groups-form-back' %>
+
+	<div class="groups-form-footer"></div>
+</div>
+

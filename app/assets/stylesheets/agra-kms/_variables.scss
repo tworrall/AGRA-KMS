@@ -1,0 +1,38 @@
+$logo_image: 'agra-kms/agra-logo.png';
+$navbar-default-toggle-hover-bg:           #ddd !default;
+$navbar-default-toggle-icon-bar-bg:        #006738 !default;
+$navbar-default-toggle-border-color:       #999 !default;
+
+// Fonts #79ad1a #99c548
+// -------------------------
+$font-family-sans-serif:      Hero;
+$font-family-heading:         Hero;
+
+// Colors
+$agkno-blue:                  #1caade;
+$agkno-blue-light:            #6bcddb;
+$agkno-green:                 #006738;
+$agkno-green-light:           #d0db3f;
+
+$dark-gray:                   #39393b;
+$pale-gray: 				  #f3f3f3;
+
+$brand-primary:               $agkno-blue;
+$brand-success:               $agkno-green;
+
+$navbar-default-bg:           #fff;
+
+// Navbar
+$navbar-height:               90px;
+$nav-link-padding:            10px 10px;
+
+// Jumbotron
+$jumbotron-color:                $pale-gray !default;
+$jumbotron-font-size:            1.2em !default;
+
+
+// Mixins
+@mixin background-opacity($color, $opacity: 0.3) {
+  background: $color; /* The Fallback */
+  background: rgba($color, $opacity);
+}

@@ -1,0 +1,21 @@
+development:
+  user:      <%= "#{ENV['FEDORA_ADMIN_USER']}" %>
+  password:  <%= "#{ENV['FEDORA_ADMIN_USER_PW']}" %>
+  url:       <%= "#{ENV['FEDORA_URL']}" %>
+  base_path: /dev
+test:
+  user:      <%= "#{ENV['FEDORA_ADMIN_USER']}" %>
+  password:  <%= "#{ENV['FEDORA_ADMIN_USER_PW']}" %>
+  url:       <%= "#{ENV['FEDORA_URL']}" %>
+  base_path: /test
+staging:
+  user:      <%= "#{ENV['FEDORA_ADMIN_USER']}" %>
+  password:  <%= "#{ENV['FEDORA_ADMIN_USER_PW']}" %>
+  url:       <%= "#{ENV['FEDORA_URL']}" %>
+  base_path: /dev
+production:
+  user:      <%= "#{ENV['FEDORA_ADMIN_USER']}" %>
+  password:  <%= "#{ENV['FEDORA_ADMIN_USER_PW']}" %>
+  url:       <%= "#{ENV['FEDORA_URL']}" %>
+  base_path: /prod
+

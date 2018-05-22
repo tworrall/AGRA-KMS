@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'Hero';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Hero'), url(font-path('hero-webfont.ttf')) format('truetype');
+}
+
+@font-face {
+  font-family: 'Hero Light';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Hero Light'), url(font-path('hero_light-webfont.ttf')) format('truetype');
+}

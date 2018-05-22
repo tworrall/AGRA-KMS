@@ -1,0 +1,45 @@
+<h1 class="groups-heading masthead-padding">Group Memberships</h1>
+<div id="group-form-container">
+  <% if @gms.present? %>
+	<table id="group-mbr-list">
+	  <thead>
+	    <tr>
+	      <th>Group Name</th>
+	      <th>Group Description</th>
+	      <th>Member Email</th>
+	      <th></th>
+	    </tr>
+	  </thead>
+	  <% current_group = "" %>
+	  <% current_color = "" %>
+  	  <% white_background = "<tr style='background-color:#fff' >" %>
+  	  <% gray_background = "<tr style='background-color:#f9f9f9' >" %>
+	  <tbody>
+	    <% @gms.each do |membership| %>
+	      <% if current_color.length == 0 %><%= raw(white_background) %><% current_color = "white" %>
+		  <% elsif current_group != membership.name %>
+				<% if current_color == "white" %><%= raw(gray_background) %><% current_color = "gray" %>
+				<% else %><%= raw(white_background) %><% current_color = "white" %>
+				<% end %>
+		<% elsif current_color == "white" %><%= raw(white_background) %>
+		<% elsif current_color == "gray" %><%= raw(gray_background) %>
+		<% end %>
+        	<td><% if current_group != membership.name %><%= membership.name %><% end %></td>
+        	<td><% if current_group != membership.name %><%= membership.description %><% end %></td>
+	        <td><%= membership.email %></td>
+	        <td><%= link_to raw('<i class="glyphicon glyphicon-trash" aria-hidden="true"></i>'), membership, title: 'Delete this group', method: :delete, data: { confirm: 'Are you sure?'}  %></td>
+	      </tr>
+			<% current_group = membership.name %>
+	    <% end %>
+	  </tbody>
+	</table>
+  <% end %>
+	<br/>
+	<br/>	
+	<%= button_to "Create New Memberships", new_group_membership_path, :class => "btn btn-primary btn-md pull-left", :method => :get%>
+	<span class="pull-left" style="padding-left:40px">
+		<%= button_to "Manage groups", groups_path, :class => "btn btn-primary btn-md", :method => :get%>
+	</span>
+	<br/><br/>
+</div>
+<div class="groups-form-footer"></div>
