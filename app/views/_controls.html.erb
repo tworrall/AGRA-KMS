@@ -1,4 +1,4 @@
-<% if params[:controller].include?("hyrax") || params[:controller].include?("devise")%>
+<% unless params[:controller].include?("users") || params[:controller].include?("roles") || params[:controller].include?("group")%>
 <div class="container-fluid serachform-container">
   <div class="container">
     <div class="row">
@@ -8,4 +8,11 @@
     </div>
   </div>
 </div>
+<% end %>
+<% if params[:controller].include?("roles")%>
+	<div class="masthead-padding" style="margin-left:30px">
+		<% if params[:action].include?("new")%>
+			<h2>New Role</h2>
+		<% end %>
+	</div>
 <% end %>
