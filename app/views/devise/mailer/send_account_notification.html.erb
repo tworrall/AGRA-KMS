@@ -1,0 +1,7 @@
+<p>Hello, <%= @resource.email %>.</p>
+
+<p>Your AGRA Knowledge Management System account is now available. To use AGRA KMS, you must first login through the link below and update the password information.</p>
+
+<p><%= link_to 'Change password to activate account', edit_password_url(@resource, reset_password_token: @token) %></p>
+
+<p>If you didn't request an account, please ignore this email.</p>

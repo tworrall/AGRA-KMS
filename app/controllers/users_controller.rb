@@ -65,7 +65,7 @@ class UsersController < ApplicationController
       else
         delete_user_from_admin_role(@user)
       end
-      flash.keep[:notice] = 'The "' + params[:user][:email] + '" group was successfully updated.'
+      flash.keep[:notice] = 'The "' + params[:user][:email] + '" account was successfully updated.'
       redirect_to '/users'
     else
       render :admin_edit
@@ -108,7 +108,6 @@ class UsersController < ApplicationController
     @user = User.find_by_id(params[:user_id])
     delete_user_from_admin_role(@user)
     @user.destroy
-    GroupMembership.where(member_id: params[:user_id]).destroy_all
     redirect_to '/users', notice: 'The user was successfully deleted.'
   end
 

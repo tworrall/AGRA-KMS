@@ -20,9 +20,9 @@ class User < ActiveRecord::Base
 # Connects this user object to Blacklights Bookmarks.
   include Blacklight::User
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :timeoutable
+  # :confirmable, :lockable, :timeoutable and :omniauthable, :registerable,
+  devise :database_authenticatable, :recoverable, :rememberable, 
+         :trackable, :validatable, :timeoutable
 
   
   validates_presence_of :password, :password_confirmation, on: :create
@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   
   def new_account_notification
     token = set_reset_password_token
-    #send_devise_notification(:send_account_notification, token, {})
+    send_devise_notification(:send_account_notification, token, {})
   end
   
 #  def valid_password?(password)
