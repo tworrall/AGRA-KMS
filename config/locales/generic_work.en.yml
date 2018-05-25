@@ -13,5 +13,6 @@ en:
         value_chain: "Value Chain"
         creator: "Author"
         based_near: "Geographic location"
+        language: "Language"
     hints:
         

@@ -24,8 +24,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :timeoutable
 
-  groupify :group_member
-  groupify :named_group_member
   
   validates_presence_of :password, :password_confirmation, on: :create
   validates_confirmation_of :password, on: :create
@@ -39,20 +37,10 @@ class User < ActiveRecord::Base
   def to_s
     email
   end
-
-  def groups
-    group_memberships = []
-
-    GroupMembership.where(member_id: id).find_each do |gm|
-      group_memberships << gm.group_name
-    end
-
-    @groups = group_memberships
-  end
   
   def new_account_notification
     token = set_reset_password_token
-    send_devise_notification(:send_account_notification, token, {})
+    #send_devise_notification(:send_account_notification, token, {})
   end
   
 #  def valid_password?(password)
