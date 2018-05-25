@@ -253,7 +253,6 @@ GEM
       multi_json (~> 1.11)
       os (~> 0.9)
       signet (~> 0.7)
-    groupify (0.9.0)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -753,7 +752,6 @@ DEPENDENCIES
   devise
   devise-guests (~> 0.6)
   fcrepo_wrapper
-  groupify
   hydra-role-management!
   hyrax (= 2.1.0.rc3)
   jbuilder (~> 2.5)
