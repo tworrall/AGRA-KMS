@@ -59,9 +59,6 @@ group :development, :test do
 end
 gem 'hydra-role-management', github: 'projecthydra/hydra-role-management', branch: 'master', ref: 'bb2c32a'
 
-# for managing groups
-gem 'groupify'
-
 gem 'rsolr', '>= 1.0'
 gem 'jquery-rails'
 gem 'devise'

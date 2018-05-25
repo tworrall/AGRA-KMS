@@ -4,13 +4,13 @@ class Ability
   include Hyrax::Ability
   self.ability_logic += [:everyone_can_create_curation_concerns]
 
-  def admin?
-    if current_user.admin?
-      return true
-    else
-      return false
-    end
-  end
+#  def admin?
+#    if current_user.admin?
+#      return true
+#    else
+#      return false
+#    end
+#  end
 
   # Define any customized permissions here.
   def custom_permissions

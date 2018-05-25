@@ -19,13 +19,10 @@ Rails.application.routes.draw do
   curation_concerns_basic_routes
   concern :exportable, Blacklight::Routes::Exportable.new
 
-  resources :groups
-  resources :group_memberships
   resources :solr_documents, only: [:show], path: '/catalog', controller: 'catalog' do
     concerns :exportable
   end
 
-  get '/users_for_group/:groupid', controller: 'group_memberships', to: 'group_memberships#get_users_for_group'
   get '/user_mgmt/new', controller: 'users', to: 'users#new' 
   post '/user_mgmt/new', controller: 'users', to: 'users#create'
   get '/user_mgmt/edit/:user_id', controller: 'users', to: 'users#admin_edit' 

@@ -1,0 +1,21 @@
+# Rename this file to local_env.yml
+# Add account settings and API keys here specific to the install machine.
+
+MAILER_HOST:            'Your Mailer Host'                # Example:  'my.example.org'
+MAILER_PORT:            'Your Mailer Port Number'
+
+SOLR_URL:               'Your SOLR URL'                   # Example:  'http://localhost:8983/solr/development'
+
+FEDORA_ADMIN_USER:      'Your Fedora Admin User'
+FEDORA_ADMIN_USER_PW:   'Your Fedora Admin User Password'
+FEDORA_URL:             'Your Fedora URL'                 # Example:  'http://localhost:8983/fedora/rest'
+
+DATABASE_NAME_PREFIX:   'Your Database Name Prefix'
+DATABASE_RAILS_USER:    'Your Database User for the Rails app'
+DATABASE_RAILS_USER_PW: 'Your Database User Password for the Rails app'
+REDIS_HOST:		'Your Redis server (defaults to localhost)'
+
+ADMIN_EMAIL:             'email address of the default admin'
+ADMIN_PASSWORD:          'the login password of the default admin' 
+APPSIGNAL_PUSH_API_KEY:  'the appsignal push_api_key'
+SECRET_KEY_BASE: 'use `rake secret` to generate a secure secret key'
