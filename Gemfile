@@ -58,6 +58,7 @@ group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
 gem 'hydra-role-management', github: 'projecthydra/hydra-role-management', branch: 'master', ref: 'bb2c32a'
+gem 'linkeddata'
 
 gem 'rsolr', '>= 1.0'
 gem 'jquery-rails'

@@ -1,0 +1,9 @@
+<%= f.input key,
+   as: :multi_value,
+   input_html: {
+      class: 'form-control',
+      data: { 'autocomplete-url' => Rails.application.routes.url_helpers.qa_path + 'search/linked_data/agrovoc?q=',
+              'autocomplete' => key }
+      },
+      required: f.object.required?(key) %>
+HERE => <%= Rails.application.routes.url_helpers.qa_path.to_s %>
