@@ -49,5 +49,27 @@ when 'development', 'integration', 'staging', 'production'
     Hyrax::CollectionTypes::CreateService.create_collection_type(machine_id: 'organization', title: 'AGRA Collection', options: options)
     puts 'Created Organization Collection Type'
   end
+
+  test_ct = Hyrax::CollectionType.find_by(machine_id: 'test')
+  unless test_ct.present?
+    options = {
+      description: 'Test Collection Type',
+      nestable: true,
+      brandable: true,
+      discoverable: false,
+      sharable: true,
+      share_applies_to_new_works: true,
+      allow_multiple_membership: true,
+      require_membership: false,
+      assigns_workflow: true,
+      assigns_visibility: true,
+      badge_color: '#666633',
+      participants: [{ agent_type: Hyrax::CollectionTypeParticipant::GROUP_TYPE, agent_id: 'admin', access: Hyrax::CollectionTypeParticipant::MANAGE_ACCESS },
+                     { agent_type: Hyrax::CollectionTypeParticipant::GROUP_TYPE, agent_id: 'admin', access: Hyrax::CollectionTypeParticipant::CREATE_ACCESS }]
+    }
+    Hyrax::CollectionTypes::CreateService.create_collection_type(machine_id: 'test', title: 'Test Collection', options: options)
+    puts 'Created Test Collection Type'
+  end
+
   puts 'Done.'
 end
