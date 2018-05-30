@@ -32,16 +32,16 @@ when 'development', 'integration', 'staging', 'production'
   org_ct = Hyrax::CollectionType.find_by(machine_id: 'organization')
   unless org_ct.present?
     options = {
-      description: 'Collection units that can be nested',
+      description: 'Organization Collection',
       nestable: true,
       brandable: true,
       discoverable: true,
       sharable: true,
       share_applies_to_new_works: true,
-      allow_multiple_membership: false,
+      allow_multiple_membership: true,
       require_membership: false,
-      assigns_workflow: false,
-      assigns_visibility: false,
+      assigns_workflow: true,
+      assigns_visibility: true,
       badge_color: '#663333',
       participants: [{ agent_type: Hyrax::CollectionTypeParticipant::GROUP_TYPE, agent_id: 'admin', access: Hyrax::CollectionTypeParticipant::MANAGE_ACCESS },
                      { agent_type: Hyrax::CollectionTypeParticipant::GROUP_TYPE, agent_id: 'admin', access: Hyrax::CollectionTypeParticipant::CREATE_ACCESS }]
