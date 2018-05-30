@@ -37,3 +37,6 @@ rails.log
 /config/local_env.yml
 
 *.tar
+
+# Ignore devel directory
+devel
