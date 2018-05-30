@@ -59,6 +59,7 @@ case Rails.env
 when 'development', 'integration', 'staging', 'production'
 
   organization_gid = CollectionTypeService.organization_gid
+  test_gid = CollectionTypeService.test_gid
 
   unless organization_gid.present?
     puts 'Failed to get Agra collection type.  Unable to create collections.'
@@ -79,7 +80,7 @@ when 'development', 'integration', 'staging', 'production'
     permissions = base_grants.dup
     permissions << { agent_type: Hyrax::PermissionTemplateAccess::GROUP, agent_id: 'admin', access: Hyrax::PermissionTemplateAccess::MANAGE }
     permissions << { agent_type: Hyrax::PermissionTemplateAccess::GROUP, agent_id: 'admin', access: Hyrax::PermissionTemplateAccess::DEPOSIT }
-    training = create_collection(user, organization_gid, 'training',
+    training = create_collection(user, test_gid, 'training',
                             title: ['Training'],
                             description: ['Training Collection'],
                             permissions: permissions)
