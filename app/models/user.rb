@@ -38,13 +38,17 @@ class User < ActiveRecord::Base
     email
   end
   
+  def name
+      if !display_name.empty?
+        display_name
+      else 
+        user_key
+      end
+  end
+  
   def new_account_notification
     token = set_reset_password_token
     send_devise_notification(:send_account_notification, token, {})
   end
   
-#  def valid_password?(password)
-    # Not using passwords for standard users so always return true
-#    true
-#  end
 end
