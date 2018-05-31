@@ -39,10 +39,10 @@ class User < ActiveRecord::Base
   end
   
   def name
-      if !display_name.empty?
-        display_name
-      else 
+      if display_name == nil || display_name.empty?
         user_key
+      else 
+        display_name
       end
   end
   
