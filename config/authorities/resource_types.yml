@@ -1,12 +1,16 @@
 terms:
+  - id: Annual Report
+    term: Annual Report
   - id: Article
     term: Article
   - id: Audio
     term: Audio
-  - id: Book
-    term: Book
+  - id: Book/Book Chapter
+    term: Book/Book Chapter
   - id: Capstone Project
     term: Capstone Project
+  - id: Commissioned Report
+    term: Commissioned Report
   - id: Conference Proceeding
     term: Conference Proceeding
   - id: Dataset
@@ -21,6 +25,8 @@ terms:
     term: Map or Cartographic Material
   - id: Masters Thesis
     term: Masters Thesis
+  - id: Newsletter
+    term: Newsletter
   - id: Part of Book
     term: Part of Book
   - id: Poster
@@ -35,7 +41,13 @@ terms:
     term: Research Paper
   - id: Software or Program Code
     term: Software or Program Code
+  - id: Spreadsheet
+    term: Spreadsheet
+  - id: Technical Document
+    term: Technical Document
   - id: Video
     term: Video
+  - id: White Paper
+    term: White Paper
   - id: Other
     term: Other
