@@ -28,6 +28,8 @@ module AgraKms
     config.generators do |g|
       g.test_framework :rspec, :spec => true
     end
-    
+#    config.to_prepare do
+#      Hyrax::Forms::BatchUploadForm.prepend PrependedForms::BatchUploadForm
+#    end  
   end
 end

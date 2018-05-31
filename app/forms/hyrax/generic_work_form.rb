@@ -5,7 +5,7 @@ module Hyrax
   class GenericWorkForm < Hyrax::Forms::WorkForm
     self.model_class = ::GenericWork
     
-    self.terms = [:title, :creator, :contributor, :description,
+    self.terms = [:title, :creator, :contributor, :description, :resource_type,
                   :keyword, :based_near, :value_chain, :commodities, :subject, :language, :license, :rights_statement, 
                   :publisher, :date_created, :identifier, :related_url, :source, 
                   :representative_id, :thumbnail_id, :rendering_ids, :files,
