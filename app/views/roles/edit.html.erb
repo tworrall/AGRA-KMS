@@ -5,9 +5,9 @@
 
     <%= f.submit t('role-management.edit.update'), :class=>'btn btn-primary' %>
 
-		<% if can? :destroy, Role %>
-		  <%= button_to t('role-management.edit.delete'), role_management.role_path(@role), :method=>:delete, :class=>'btn btn-danger'%>
-		<% end %>
+<% end %>
+<% if can? :destroy, Role %>
+	<%= button_to t('role-management.edit.delete'), role_management.role_path(@role), :method=>:delete, :class=>'btn btn-danger', :style=> "margin-top:8px"%>
 <% end %>
 <h3><%= t('role-management.edit.accounts') %></h3>
 <ul>
