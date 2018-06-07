@@ -21,6 +21,8 @@ terms:
     term: Image
   - id: Journal
     term: Journal
+  - id: Manuals
+    term: Manuals
   - id: Map or Cartographic Material
     term: Map or Cartographic Material
   - id: Masters Thesis
