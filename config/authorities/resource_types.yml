@@ -1,12 +1,18 @@
 terms:
+  - id: AGRA Policies and Procedures
+    term: AGRA Policies and Procedures
   - id: Annual Report
-    term: Annual Report
+    term: Annual Report  
   - id: Article
     term: Article
   - id: Audio
     term: Audio
+  - id: Board Reports
+    term: Board Reports
   - id: Book/Book Chapter
     term: Book/Book Chapter
+  - id: Case Studies
+    term: Case Studies
   - id: Capstone Project
     term: Capstone Project
   - id: Commissioned Report
@@ -17,16 +23,22 @@ terms:
     term: Dataset
   - id: Dissertation
     term: Dissertation
+  - id: Donor Reports
+    term: Donor Reports
   - id: Image
     term: Image
   - id: Journal
     term: Journal
-  - id: Manuals
-    term: Manuals
+  - id: Management Reports
+    term: Management Reports
+  - id: Manuals and Guides
+    term: Manuals and Guides
   - id: Map or Cartographic Material
     term: Map or Cartographic Material
   - id: Masters Thesis
     term: Masters Thesis
+  - id: M&E reports
+    term: M&E reports
   - id: Newsletter
     term: Newsletter
   - id: Part of Book
@@ -35,8 +47,12 @@ terms:
     term: Poster
   - id: Presentation
     term: Presentation
+  - id: Progress Report
+    term: Progress Report
   - id: Project
     term: Project
+  - id: QRM Reports
+    term: QRM Reports
   - id: Report
     term: Report
   - id: Research Paper
@@ -47,6 +63,8 @@ terms:
     term: Spreadsheet
   - id: Technical Document
     term: Technical Document
+  - id: Trip Reports
+    term: Trip Reports
   - id: Video
     term: Video
   - id: White Paper
