@@ -1,0 +1,13 @@
+<div id="content" class="col-md-12">
+  <div class="row">
+    <div class="col-12 col-sm-12 col-lg-10">
+      <% if request.params['pageType'] == "about" %>
+        <%= render :partial=>'about_page' %>
+      <% elsif request.params['pageType'] == "help" %>
+        <%= render :partial=>'help_page' %>
+      <% else %>
+        <%= render :partial=>'about_page' %>
+      <% end %>
+    </div><!--column-->
+  </div><!--row-->
+</div>
