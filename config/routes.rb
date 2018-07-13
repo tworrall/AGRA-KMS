@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   devise_for :users
   mount Hydra::RoleManagement::Engine => '/'
 
+  get 'pages/:pageType', to: 'pages#index'
+  get 'help', to: 'pages#index'
+  get 'about', to: 'pages#index'
+
   mount Qa::Engine => '/authorities'
   mount Hyrax::Engine, at: '/'
   resources :welcome, only: 'index'
