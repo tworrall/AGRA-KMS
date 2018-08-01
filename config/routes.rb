@@ -37,6 +37,19 @@ Rails.application.routes.draw do
   get '/user_mgmt/pwd_change/:user_id', controller: 'users', to: 'users#user_pwd_change' 
   patch '/user_mgmt/user_pwd_update', controller: 'users', to: 'users#user_pwd_update'
 
+  # API routes
+  scope '/api' do
+    scope '/v1' do
+      scope '/collections' do
+        get '/findAll', controller: 'api/v1/collections', action: :findAll
+      end
+      scope '/generic_works' do
+        get '/findAll', controller: 'api/v1/generic_works', action: :findAll
+        get '/search', controller: 'api/v1/generic_works', action: :search
+      end
+    end
+  end
+
   resources :bookmarks do
     concerns :exportable
 
