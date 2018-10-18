@@ -70,3 +70,4 @@ group :development, :test do
 end
 
 gem 'riiif', '~> 1.1'
+gem 'rest-client'
