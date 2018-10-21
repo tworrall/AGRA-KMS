@@ -3,6 +3,30 @@
     <li>
       <%= render_notifications(user: current_user) %>
     </li>
+
+    <li>
+      <% if current_page?(hyrax.root_path) %>
+        <a class="active-menu">Home</a>
+      <% else %>
+        <%= link_to t(:'hyrax.controls.home'), hyrax.root_path %>
+      <% end %>
+    </li>
+
+    <li>
+      <% if current_page?(hyrax.about_path) %>
+        <a class="active-menu">About</a>
+      <% else %>
+        <%= link_to t(:'hyrax.controls.about'), hyrax.about_path %>
+      <% end %>
+    </li>
+
+    <li>
+      <% if current_page?(hyrax.help_path) %>
+        <a class="active-menu">Help</a>
+      <% else %>
+        <%= link_to t(:'hyrax.controls.help'), hyrax.help_path %>
+      <% end %>
+    </li>
     <li class="dropdown">
       <%= link_to hyrax.dashboard_profile_path(current_user), role: 'button', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false} do %>
         <span class="sr-only"><%= t("hyrax.toolbar.profile.sr_action") %></span>
@@ -18,38 +42,38 @@
         <li class="user-controls"><%= link_to t("hyrax.toolbar.profile.logout"), main_app.destroy_user_session_path %></li>
       </ul>
     </li><!-- /.btn-group -->
+
   <% else %>
+  <%#-- Do we need the Home link? --%>
     <li>
-			<% if current_page?(hyrax.root_path) %>
-				<a class="active-menu">Home</a>
-	    <% else %>
-				<%= link_to t(:'hyrax.controls.home'), hyrax.root_path %>
-			<% end %>
-		</li>
+      <% if current_page?(hyrax.root_path) %>
+        <a class="active-menu">Home</a>
+      <% else %>
+        <%= link_to t(:'hyrax.controls.home'), hyrax.root_path %>
+      <% end %>
+    </li>
+
     <li>
-			<% if current_page?(hyrax.about_path) %>
-				<a class="active-menu">About</a>
-	    <% else %>
-				<%= link_to t(:'hyrax.controls.about'), hyrax.about_path %>
-			<% end %>
-		</li>
+      <% if current_page?(hyrax.about_path) %>
+        <a class="active-menu">About</a>
+      <% else %>
+        <%= link_to t(:'hyrax.controls.about'), hyrax.about_path %>
+      <% end %>
+    </li>
+
     <li>
-			<% if current_page?(hyrax.help_path) %>
-				<a class="active-menu">Help</a>
-	    <% else %>
-				<%= link_to t(:'hyrax.controls.help'), hyrax.help_path %>
-			<% end %>
-	</li>
+      <% if current_page?(hyrax.help_path) %>
+        <a class="active-menu">Help</a>
+      <% else %>
+        <%= link_to t(:'hyrax.controls.help'), hyrax.help_path %>
+      <% end %>
+    </li>
     <li>
-			<% if current_page?(main_app.new_user_session_path) %>
-				<span class="active-menu">
-					<span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> <%= t("hyrax.toolbar.profile.login") %>
-				</span>
-	    <% else %>
-				<%= link_to main_app.new_user_session_path do %>
-				  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> <%= t("hyrax.toolbar.profile.login") %>
-        <% end %>
-			<% end %>
+      <% if current_page?(main_app.new_user_session_path) %>
+        <span class="active-menu"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login</span>
+      <% else %>
+        <%= link_to main_app.new_user_session_path do %><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Login<% end %>
+      <% end %>
     </li>
   <% end %>
 </ul>

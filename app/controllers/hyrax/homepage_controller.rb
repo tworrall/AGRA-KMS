@@ -6,7 +6,8 @@ class Hyrax::HomepageController < ApplicationController
   
   before_action :set_commodities_list
   before_action :set_geo_location_list
-  before_action :set_value_chain_list
+  # before_action :set_value_chain_list
+  before_action :set_collection_list
   before_action :set_language_list
   
   def set_commodities_list
@@ -27,12 +28,22 @@ class Hyrax::HomepageController < ApplicationController
       end
   end
 
-  def set_value_chain_list
-      value_chain_list = get_facet_list('value_chain')
-      if value_chain_list == 0
-        session[:value_chain_list] = []
+#   def set_value_chain_list
+#       value_chain_list = get_facet_list('value_chain')
+#       if value_chain_list == 0
+#         session[:value_chain_list] = []
+#       else
+#         session[:value_chain_list] = value_chain_list
+#       end
+#   end
+
+  # TODO: Needs work to dispay collections
+  def set_collection_list
+      collection_list = get_facet_list('member_of_collections')
+      if collection_list == 0
+        session[:collection_list] = []
       else
-        session[:value_chain_list] = value_chain_list
+        session[:collection_list] = collection_list
       end
   end
 
@@ -106,8 +117,10 @@ class Hyrax::HomepageController < ApplicationController
           result = body[:facet_counts][:facet_fields][:commodities_sim]
         elsif type == 'based_near'
           result = body[:facet_counts][:facet_fields][:based_near_sim]
-        elsif type == 'value_chain'
-          result = body[:facet_counts][:facet_fields][:value_chain_sim]
+        # elsif type == 'value_chain'
+        #   result = body[:facet_counts][:facet_fields][:value_chain_sim]
+        elsif type == 'collection'
+          result = body[:facet_counts][:facet_fields][:collection_sim]
         else
           result = body[:facet_counts][:facet_fields][:language_sim]
         end 

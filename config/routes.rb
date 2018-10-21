@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
   
   mount Riiif::Engine => 'images', as: :riiif if Hyrax.config.iiif_image_server?
   mount Blacklight::Engine => '/'
@@ -11,6 +13,10 @@ Rails.application.routes.draw do
 
   devise_for :users
   mount Hydra::RoleManagement::Engine => '/'
+
+  # get 'pages/:pageType', to: 'pages#index'
+  # get 'help', to: 'pages#index'
+  # get 'about', to: 'pages#index'
 
   mount Qa::Engine => '/authorities'
   mount Hyrax::Engine, at: '/'
@@ -32,6 +38,19 @@ Rails.application.routes.draw do
   patch '/user_mgmt/pwd_update', controller: 'users', to: 'users#admin_pwd_update'
   get '/user_mgmt/pwd_change/:user_id', controller: 'users', to: 'users#user_pwd_change' 
   patch '/user_mgmt/user_pwd_update', controller: 'users', to: 'users#user_pwd_update'
+
+  # API routes
+  scope '/api' do
+    scope '/v1' do
+      scope '/collections' do
+        get '/findAll', controller: 'api/v1/collections', action: :findAll
+      end
+      scope '/generic_works' do
+        get '/findAll', controller: 'api/v1/generic_works', action: :findAll
+        get '/search', controller: 'api/v1/generic_works', action: :search
+      end
+    end
+  end
 
   resources :bookmarks do
     concerns :exportable

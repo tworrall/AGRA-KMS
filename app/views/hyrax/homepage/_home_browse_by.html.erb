@@ -1,8 +1,8 @@
 <% commodities = session[:commodities_list] %>
 <% geo_location = session[:geo_location_list] %>
-<% value_chain = session[:value_chain_list] %>
+<% collection = session[:collection_list] %>
 <% language = session[:language_list] %>
-<% if commodities.length != 0 || geo_location.length != 0 || value_chain.length != 0 || language.length != 0%>
+<% if commodities.length != 0 || geo_location.length != 0 || collection.length != 0 || language.length != 0%>
 <div id="browse-by">
 	<h1 id="browse-heading">Browse by</h1>
 	<ul>
@@ -35,15 +35,15 @@
 			<% end %>
 		</li>
 		<li style="list-style:none">
-			<% if value_chain.length != 0 %>
-			<div id="value_chain-dropdown" class="btn-group browse-options">
+			<% if collection.length != 0 %>
+			<div id="collection-dropdown" class="btn-group browse-options">
 			  <button type="button" class="btn btn-default dropdown-toggle home-dropdown" data-toggle="dropdown">
-			     Value Chain <div class="caret home-caret"></div>
+			     Agricultural Systems <div class="caret home-caret"></div>
 			  </button>
 
 			  <ul class="dropdown-menu" role="menu">
-					<% value_chain.each do |c| %>
-			        <li style="font-size:14px"><a href="/catalog?f[value_chain_sim][]=<%=c%>&q=&search_field=all_fields"><%=c%></a></li>
+					<% collection.each do |c| %>
+			        <li style="font-size:14px"><a href="/catalog?f[member_of_collections_ssim][]=<%=c%>&q=&search_field=all_fields"><%=c%></a></li>
 					<% end %>
 			  </ul>
 			</div>

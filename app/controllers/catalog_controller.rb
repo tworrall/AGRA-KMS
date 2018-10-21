@@ -13,6 +13,10 @@ class CatalogController < ApplicationController
     solr_name('system_modified', :stored_sortable, type: :date)
   end
 
+  def self.title_field
+    solr_name('title_sort', :stored_sortable)
+  end
+
   configure_blacklight do |config|
     config.view.gallery.partials = [:index_header, :index]
     config.view.masonry.partials = [:index]
@@ -47,15 +51,14 @@ class CatalogController < ApplicationController
     config.add_facet_field solr_name("creator", :facetable), label: "Author", limit: 5
     config.add_facet_field solr_name("contributor", :facetable), label: "Contributor", limit: 5
     config.add_facet_field solr_name("commodities", :facetable), label: "Commodity", limit: 10
-    config.add_facet_field solr_name("value_chain", :facetable), label: "Value Chain", limit: 10
+    # config.add_facet_field solr_name("value_chain", :facetable), label: "Value Chain", limit: 10
     config.add_facet_field solr_name("based_near", :facetable), label: "Geographic Location", limit: 5
     config.add_facet_field solr_name("subject", :facetable), label: "Subject", limit: 5
     config.add_facet_field solr_name("language", :facetable), label: "Language", limit: 5
 #    config.add_facet_field solr_name("based_near_label", :facetable), limit: 5
     config.add_facet_field solr_name("publisher", :facetable), label: "Publisher", limit: 5
 #    config.add_facet_field solr_name("file_format", :facetable), label: "File Format", limit: 5
-#    config.add_facet_field solr_name('member_of_collections', :symbol), label: "Collection Member", limit: 5, label: 'Collections'
-
+    # config.add_facet_field solr_name('member_of_collection_ids', :symbol), limit: 5, label: 'Collection', helper_method: :convert_id_to_name, partial: 'collection_facet_limit'
     # The generic_type isn't displayed on the facet list
     # It's used to give a label to the filter that comes from the user profile
     config.add_facet_field solr_name("generic_type", :facetable), if: false
@@ -78,7 +81,7 @@ class CatalogController < ApplicationController
     config.add_index_field solr_name("contributor", :stored_searchable), label: "Contributor", itemprop: 'contributor', link_to_search: solr_name("contributor", :facetable)
 #    config.add_index_field solr_name("proxy_depositor", :symbol), label: "Depositor", helper_method: :link_to_profile
 #    config.add_index_field solr_name("depositor"), label: "Owner", helper_method: :link_to_profile
-    config.add_index_field solr_name("publisher", :stored_searchable), label: "Publishe", itemprop: 'publisher', link_to_search: solr_name("publisher", :facetable)
+    config.add_index_field solr_name("publisher", :stored_searchable), label: "Publisher", itemprop: 'publisher', link_to_search: solr_name("publisher", :facetable)
 #    config.add_index_field solr_name("based_near_label", :stored_searchable), itemprop: 'contentLocation', link_to_search: solr_name("based_near_label", :facetable)
     config.add_index_field solr_name("language", :stored_searchable), label: "Language", itemprop: 'inLanguage', link_to_search: solr_name("language", :facetable)
 #    config.add_index_field solr_name("date_uploaded", :stored_sortable, type: :date), label: "Date Uploaded", itemprop: 'datePublished', helper_method: :human_readable_date
@@ -287,6 +290,7 @@ class CatalogController < ApplicationController
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
     # label is key, solr field is value
+    config.add_sort_field "#{title_field} asc", label: 'title'
     config.add_sort_field "score desc, #{uploaded_field} desc", label: "relevance"
     config.add_sort_field "#{uploaded_field} desc", label: "date uploaded \u25BC"
     config.add_sort_field "#{uploaded_field} asc", label: "date uploaded \u25B2"
