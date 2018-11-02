@@ -40,3 +40,6 @@ rails.log
 
 # Ignore devel directory
 devel
+
+# ignore log files
+*.log
